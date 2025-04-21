@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professor's Login</title>
-    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -18,7 +21,24 @@
                 <h1>Welcome back</h1>
                 <p class="subtitle">Login to your account</p>
                 
-                <form action="#" method="post">
+                
+                <!-- Display error message if any -->
+                <% String error = request.getParameter("error");
+                   if (error != null && !error.isEmpty()) { %>
+                    <div class="error-message" style="margin-bottom: 20px">
+                        <i class="fas fa-exclamation-circle"></i> <%= error %>
+                    </div>
+                <% } %>
+                
+                <!-- Display success message if any -->
+                <% String success = request.getParameter("success");
+                   if (success != null && !success.isEmpty()) { %>
+                    <div class="success-message">
+                        <i class="fas fa-check-circle"></i> <%= success %>
+                    </div>
+                <% } %>
+                
+                <form action="${pageContext.request.contextPath}/login" method="post">
                     <div class="input-group">
                         <div class="input-icon">
                             <i class="fas fa-envelope"></i>
@@ -62,7 +82,7 @@
                     </div>
                     
                     <div class="signup-prompt">
-                        <p>Don't have an account? <a href="register.html">Sign up</a></p>
+                        <p>Don't have an account? <a href="${pageContext.request.contextPath}/register">Sign up</a></p>
                     </div>
                 </form>
             </div>

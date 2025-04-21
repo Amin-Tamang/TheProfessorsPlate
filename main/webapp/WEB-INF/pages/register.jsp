@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professor's Registration</title>
-    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -18,7 +21,14 @@
                 <h1>Create an account</h1>
                 <p class="subtitle">Join The Professor's Plate to access unlimited foods</p>
                 
-                <form action="register" method="post">
+               	<%
+				String errorMessage = (String) request.getParameter("error");
+				if (errorMessage != null && !errorMessage.isEmpty()) {
+					out.println("<p class=\"error-message\">" + errorMessage + "</p>");
+				}
+				%>
+                
+                <form action="${pageContext.request.contextPath}/register" method="post">
                     <div class="input-group">
                         <div class="input-icon">
                             <i class="fas fa-user"></i>
@@ -76,7 +86,7 @@
                     </div>
                     
                     <div class="login-prompt">
-                        <p>Already have an account? <a href="login.html">Log in</a></p>
+                        <p>Already have an account? <a href="login">Log in</a></p>
                     </div>
                 </form>
             </div>

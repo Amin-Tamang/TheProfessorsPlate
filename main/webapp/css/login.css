@@ -1,4 +1,6 @@
+@charset "UTF-8";
 
+/* Global Styles & Reset */
 * {
     margin: 0;
     padding: 0;
@@ -14,7 +16,7 @@ body {
     justify-content: center;
 }
 
-
+/* Main Container */
 .container {
     display: flex;
     width: 1000px;
@@ -247,6 +249,7 @@ input[type="password"] {
     opacity: 0.9;
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -265,4 +268,10 @@ input[type="password"] {
         height: 200px;
         order: 1;
     }
+}
+
+.error-message {
+	color: red;
+    margin-bottom: 20px;
+    text-align: center;
 }

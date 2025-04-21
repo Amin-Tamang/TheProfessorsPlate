@@ -1,20 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professor's Plate</title>
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <div id="header-container"></div>
+	<jsp:include page="header.jsp" />
 
     <main>
         <section class="hero">
@@ -22,7 +26,7 @@
                 <h1>Welcome to the Professor's Plate</h1>
                 <p>Some Random Text</p>
                 <div class="cta-buttons">
-                    <a href="register.html" class="primary-btn">Get Started</a>
+                    <a href="register.jsp" class="primary-btn">Get Started</a>
                     <a href="#" class="secondary-btn">Browse Icons</a>
                 </div>
             </div>
@@ -106,7 +110,7 @@
                 <div class="testimonial-author">
                     <img src="/api/placeholder/60/60" alt="Client" class="author-image">
                     <div class="author-info">
-                        <h4>Sarah Johnson</h4>
+                        <h4>Roshan Adhikari</h4>
                         <p>Lead Cook, ProfPlat</p>
                     </div>
                 </div>
@@ -116,11 +120,11 @@
         <section class="cta">
             <h2>Ready to enhance your taste buds.</h2>
             <p>Join thousands of foodies and taste the food of The Professor.</p>
-            <a href="register.html" class="cta-button">Create Free Account</a>
+            <a href="register.jsp" class="cta-button">Create Free Account</a>
         </section>
     </main>
-
-    <div id="footer-container"></div>
+	
+	<jsp:include page="footer.jsp" />
 
     <script>
         $(document).ready(function() {
