@@ -1,0 +1,359 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard - Professor's Plate</title>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/customer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <jsp:include page="header.jsp" />
+
+    <div class="customer-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>My Account</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="#dashboard"><i class="fas fa-home"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#orders"><i class="fas fa-shopping-bag"></i> My Orders</a>
+                </li>
+                <li>
+                    <a href="#favorites"><i class="fas fa-heart"></i> Favorites</a>
+                </li>
+                <li>
+                    <a href="#addresses"><i class="fas fa-map-marker-alt"></i> Addresses</a>
+                </li>
+                <li>
+                    <a href="#payment"><i class="fas fa-credit-card"></i> Payment Methods</a>
+                </li>
+                <li>
+                    <a href="#reviews"><i class="fas fa-star"></i> My Reviews</a>
+                </li>
+                <li>
+                    <a href="#profile"><i class="fas fa-user"></i> Profile Settings</a>
+                </li>
+                <li class="logout">
+                    <a href="#logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <div class="page-header">
+                <h2>My Dashboard</h2>
+                <div class="user-info">
+                    <span class="notification-bell">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-count">2</span>
+                    </span>
+                    <div class="customer-profile">
+                        <img src="/api/placeholder/40/40" alt="Customer">
+                        <span>John Smith</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="welcome-banner">
+                <div class="welcome-text">
+                    <h3>Welcome back, John!</h3>
+                    <p>Ready for some delicious food today?</p>
+                </div>
+                <div class="welcome-actions">
+                    <a href="#menu" class="primary-btn">Order Now</a>
+                    <a href="#specials" class="secondary-btn">Today's Specials</a>
+                </div>
+            </div>
+
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <div class="stat-icon orders">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Past Orders</h3>
+                        <p class="stat-number">12</p>
+                        <p class="stat-info">Last order: 2 days ago</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon credits">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Loyalty Points</h3>
+                        <p class="stat-number">250</p>
+                        <p class="stat-info">50 points until next reward</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon favorites">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Favorites</h3>
+                        <p class="stat-number">5</p>
+                        <p class="stat-info">Quick access to your favorites</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon reviews">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Your Rating</h3>
+                        <p class="stat-number">4.8</p>
+                        <p class="stat-info">Based on 9 reviews</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-row">
+                <div class="dashboard-card recent-orders">
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <a href="#all-orders" class="view-all">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Date</th>
+                                    <th>Items</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#ORD-2587</td>
+                                    <td>Apr 13, 2025</td>
+                                    <td>3</td>
+                                    <td>$42.50</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                    <td><a href="#" class="action-btn">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2498</td>
+                                    <td>Apr 08, 2025</td>
+                                    <td>2</td>
+                                    <td>$27.99</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                    <td><a href="#" class="action-btn">Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#ORD-2431</td>
+                                    <td>Apr 01, 2025</td>
+                                    <td>4</td>
+                                    <td>$56.75</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                    <td><a href="#" class="action-btn">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-row two-columns">
+                <div class="dashboard-card favorite-items">
+                    <div class="card-header">
+                        <h3>Your Favorites</h3>
+                        <a href="#all-favorites" class="view-all">View All</a>
+                    </div>
+                    <ul class="item-list">
+                        <li>
+                            <div class="item-details">
+                                <img src="/api/placeholder/50/50" alt="Food Item">
+                                <div>
+                                    <h4>Spaghetti Carbonara</h4>
+                                    <p>Italian Cuisine</p>
+                                </div>
+                            </div>
+                            <div class="item-actions">
+                                <span class="price">$16.99</span>
+                                <a href="#" class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-details">
+                                <img src="/api/placeholder/50/50" alt="Food Item">
+                                <div>
+                                    <h4>Chicken Alfredo</h4>
+                                    <p>Italian Cuisine</p>
+                                </div>
+                            </div>
+                            <div class="item-actions">
+                                <span class="price">$18.99</span>
+                                <a href="#" class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-details">
+                                <img src="/api/placeholder/50/50" alt="Food Item">
+                                <div>
+                                    <h4>Margherita Pizza</h4>
+                                    <p>Italian Cuisine</p>
+                                </div>
+                            </div>
+                            <div class="item-actions">
+                                <span class="price">$14.50</span>
+                                <a href="#" class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-details">
+                                <img src="/api/placeholder/50/50" alt="Food Item">
+                                <div>
+                                    <h4>Caesar Salad</h4>
+                                    <p>Salads</p>
+                                </div>
+                            </div>
+                            <div class="item-actions">
+                                <span class="price">$9.95</span>
+                                <a href="#" class="add-to-cart-btn"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="dashboard-card active-promotions">
+                    <div class="card-header">
+                        <h3>Active Promotions</h3>
+                        <a href="#all-promotions" class="view-all">View All</a>
+                    </div>
+                    <ul class="promo-list">
+                        <li>
+                            <div class="promo-details">
+                                <div class="promo-icon">
+                                    <i class="fas fa-percentage"></i>
+                                </div>
+                                <div>
+                                    <h4>20% Off First Order</h4>
+                                    <p>Use code: <strong>WELCOME20</strong></p>
+                                    <div class="promo-expiry">Expires: Apr 30, 2025</div>
+                                </div>
+                            </div>
+                            <a href="#" class="apply-btn">Apply</a>
+                        </li>
+                        <li>
+                            <div class="promo-details">
+                                <div class="promo-icon">
+                                    <i class="fas fa-utensils"></i>
+                                </div>
+                                <div>
+                                    <h4>Free Dessert</h4>
+                                    <p>With orders over $25</p>
+                                    <div class="promo-expiry">Expires: Apr 20, 2025</div>
+                                </div>
+                            </div>
+                            <a href="#" class="apply-btn">Apply</a>
+                        </li>
+                        <li>
+                            <div class="promo-details">
+                                <div class="promo-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <div>
+                                    <h4>Free Delivery</h4>
+                                    <p>Use code: <strong>FREEDEL</strong></p>
+                                    <div class="promo-expiry">Expires: Apr 25, 2025</div>
+                                </div>
+                            </div>
+                            <a href="#" class="apply-btn">Apply</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="dashboard-row">
+                <div class="dashboard-card recommended">
+                    <div class="card-header">
+                        <h3>Recommended For You</h3>
+                        <a href="#menu" class="view-all">View Menu</a>
+                    </div>
+                    <div class="recommended-items">
+                        <div class="recommended-item">
+                            <img src="/api/placeholder/200/150" alt="Food Item">
+                            <div class="item-info">
+                                <h4>Beef Lasagna</h4>
+                                <p>Italian Cuisine</p>
+                                <div class="item-footer">
+                                    <span class="price">$17.99</span>
+                                    <div class="item-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.7</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="add-to-cart-btn"><i class="fas fa-plus"></i></a>
+                        </div>
+                        <div class="recommended-item">
+                            <img src="/api/placeholder/200/150" alt="Food Item">
+                            <div class="item-info">
+                                <h4>Tiramisu</h4>
+                                <p>Dessert</p>
+                                <div class="item-footer">
+                                    <span class="price">$8.50</span>
+                                    <div class="item-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.9</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="add-to-cart-btn"><i class="fas fa-plus"></i></a>
+                        </div>
+                        <div class="recommended-item">
+                            <img src="/api/placeholder/200/150" alt="Food Item">
+                            <div class="item-info">
+                                <h4>Garlic Bread</h4>
+                                <p>Sides</p>
+                                <div class="item-footer">
+                                    <span class="price">$4.99</span>
+                                    <div class="item-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.6</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="add-to-cart-btn"><i class="fas fa-plus"></i></a>
+                        </div>
+                        <div class="recommended-item">
+                            <img src="/api/placeholder/200/150" alt="Food Item">
+                            <div class="item-info">
+                                <h4>Caprese Salad</h4>
+                                <p>Salads</p>
+                                <div class="item-footer">
+                                    <span class="price">$10.95</span>
+                                    <div class="item-rating">
+                                        <i class="fas fa-star"></i>
+                                        <span>4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="#" class="add-to-cart-btn"><i class="fas fa-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <jsp:include page="footer.jsp" />
+</body>
+</html>

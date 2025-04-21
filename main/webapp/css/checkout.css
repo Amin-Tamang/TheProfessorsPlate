@@ -1,0 +1,177 @@
+@charset "UTF-8";
+
+
+  
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0e5d8;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 500px;
+  margin: auto;
+  
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.order-box {
+  background-color: #c8b6a6;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  color: #3c3c3c;
+  margin-bottom: 10px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-info img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+}
+
+.quantity button {
+  width: 25px;
+  height: 25px;
+  font-size: 16px;
+  border: none;
+  background-color: #ddd;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.quantity input {
+  width: 30px;
+  text-align: center;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+}
+
+.product-price {
+  font-weight: bold;
+  color: #333;
+}
+
+.summary {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.summary div {
+  display: flex;
+  justify-content: space-between;
+  color: #3c3c3c;
+}
+
+.payment-method {
+  margin-top: 20px;
+}
+
+.payment-method p {
+  margin-bottom: 10px;
+}
+
+.payment-method label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #333;
+}
+
+.payment-method img {
+  height: 25px;
+  vertical-align: middle;
+}
+
+.place-order {
+  width: 100%;
+  margin-top: 20px;
+  background-color: #888eff;
+  color: #000;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.place-order:hover {
+  background-color: #7278f0;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .reviews-container {
+        flex-direction: column;
+    }
+    
+    .reviews-section {
+        flex: 1;
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+    
+    .food-images {
+        flex: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-title {
+        padding-left: 0;
+        margin-top: 1.5rem;
+    }
+    
+    .gallery-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+} 
