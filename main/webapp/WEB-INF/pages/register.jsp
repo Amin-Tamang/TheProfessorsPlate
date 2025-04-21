@@ -18,7 +18,7 @@
                 <h1>Create an account</h1>
                 <p class="subtitle">Join The Professor's Plate to access unlimited foods</p>
                 
-                <form action="#" method="post">
+                <form action="register" method="post">
                     <div class="input-group">
                         <div class="input-icon">
                             <i class="fas fa-user"></i>
