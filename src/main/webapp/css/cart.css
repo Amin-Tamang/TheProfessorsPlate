@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: Arial, sans-serif;
+}
+
+.horizontal-box{
+	background-color: #355B42;
+	padding: 25px; 
+	width: 100%; 
+}
+
+body {
+    margin: 0;
+    background-color: white;
+    background-repeat: no-repeat;
+}
+
+h1{
+	text-align: center;
+    margin-bottom: 0px;
+    margin-left: 200px;
+}
+
+.container{
+	display: flex; 
+	flex-wrap: wrap; 
+	justify-content: center; 
+	padding: 20px;
+}
