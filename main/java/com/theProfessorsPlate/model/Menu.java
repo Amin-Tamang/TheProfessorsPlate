@@ -1,4 +1,4 @@
-package com.theProfessorsPlate.model;
+package com.TheProfessorsPlate.model;
 
 public class Menu {
     private int foodId;
@@ -19,5 +19,61 @@ public class Menu {
         this.discountId = discountId;
     }
 
-    // Getters and Setters
+	public int getFoodId() {
+		return foodId;
+	}
+
+	public void setFoodId(int foodId) {
+		this.foodId = foodId;
+	}
+
+	public String getFoodName() {
+		return foodName;
+	}
+
+	public void setFoodName(String foodName) {
+		this.foodName = foodName;
+	}
+
+	public String getFoodDescription() {
+		return foodDescription;
+	}
+
+	public void setFoodDescription(String foodDescription) {
+		this.foodDescription = foodDescription;
+	}
+
+	public double getFoodPrice() {
+		return foodPrice;
+	}
+
+	public void setFoodPrice(double foodPrice) {
+		this.foodPrice = foodPrice;
+	}
+
+	public String getFoodCategory() {
+		return foodCategory;
+	}
+
+	public void setFoodCategory(String foodCategory) {
+		this.foodCategory = foodCategory;
+	}
+
+	public String getFoodImage() {
+		return foodImage;
+	}
+
+	public void setFoodImage(String foodImage) {
+		this.foodImage = foodImage;
+	}
+
+	public int getDiscountId() {
+		return discountId;
+	}
+
+	public void setDiscountId(int discountId) {
+		this.discountId = discountId;
+	}
+
+    
 }

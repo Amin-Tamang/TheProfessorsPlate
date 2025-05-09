@@ -1,138 +1,97 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professor's Registration</title>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/register.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>The Professor's Plate - Registration</title>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/register.css" />
 </head>
 <body>
     <div class="container">
-        <div class="register-panel">
-            <div class="logo-section">
-                <img src="login.html" alt="The Professor's  Plate Logo" class="logo">
-            </div>
-            
-            <div class="form-container">
-                <h1>Create an account</h1>
-                <p class="subtitle">Join The Professor's Plate to access unlimited foods</p>
-                
-               	<%
-				String errorMessage = (String) request.getParameter("error");
-				if (errorMessage != null && !errorMessage.isEmpty()) {
-					out.println("<p class=\"error-message\">" + errorMessage + "</p>");
-				}
-				%>
-                
-                <form action="${pageContext.request.contextPath}/register" method="post">
-                    <div class="input-group">
-                        <div class="input-icon">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <input type="text" id="fullname" name="fullname" placeholder="Full Name" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <div class="input-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <div class="input-icon">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <input type="password" id="password" name="password" placeholder="Password" required>
-                        <div class="password-toggle">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="input-group">
-                        <div class="input-icon">
-                            <i class="fas fa-lock"></i>
-                        </div>
-                        <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm Password" required>
-                        <div class="password-toggle confirm-toggle">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                    </div>
-                    
-                    <div class="terms-checkbox">
-                        <input type="checkbox" id="terms" name="terms" required>
-                        <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
-                    </div>
-                    
-                    <button type="submit" class="register-btn">Create Account</button>
-                    
-                    <div class="divider">
-                        <span>Or register with</span>
-                    </div>
-                    
-                    <div class="social-login">
-                        <button type="button" class="social-btn google">
-                            <i class="fab fa-google"></i>
-                            <span>Google</span>
-                        </button>
-                        <button type="button" class="social-btn apple">
-                            <i class="fab fa-apple"></i>
-                            <span>Apple</span>
-                        </button>
-                    </div>
-                    
-                    <div class="login-prompt">
-                        <p>Already have an account? <a href="login">Log in</a></p>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <h1>Create Your Account</h1>
         
-        <div class="image-panel">
-            <div class="overlay">
-                <div class="text-content">
-                    <h2>Join our creative community</h2>
-                    <p>Get access to thousands of food menus and spices</p>
+        <!-- Display error message if available -->
+		<c:if test="${not empty error}">
+			<p class="error-message">${error}</p>
+		</c:if>
+
+		<!-- Display success message if available -->
+		<c:if test="${not empty success}">
+			<p class="success-message">${success}</p>
+		</c:if>
+        
+        <form action="${pageContext.request.contextPath}/register" method="post" enctype="multipart/form-data">
+            <div class="row">
+                <div class="col">
+                    <label for="userName">Username:</label>
+                    <input type="text" 
+                           id="userName" 
+                           name="userName" 
+                           value="${userName}"
+                           required>
+                </div>
+                <div class="col">
+                    <label for="userEmail">Email:</label>
+                    <input type="email" 
+                           id="userEmail" 
+                           name="userEmail" 
+                           value="${userEmail}"
+                           required>
                 </div>
             </div>
-        </div>
+            <div class="row">
+                <div class="col">
+                    <label for="password">Password:</label>
+                    <input type="password" 
+                           id="password" 
+                           name="userPassword" 
+                           required>
+                </div>
+                <div class="col">
+                    <label for="retypePassword">Confirm Password:</label>
+                    <input type="password" 
+                           id="retypePassword" 
+                           name="retypePassword" 
+                           required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="phoneNumber">Phone Number:</label>
+                    <input type="tel" 
+                           id="phoneNumber" 
+                           name="phoneNumber" 
+                           pattern="98[0-9]{8}"
+                           value="${phoneNumber}"
+                           maxlength="10"
+                           required>
+                </div>
+                <div class="col">
+                    <label for="userRole">Role:</label>
+                    <select id="userRole" name="userRole" required>
+                        <option value="customer" ${userRole == 'customer' ? 'selected' : ''}>Customer</option>
+                        <option value="admin" ${userRole == 'admin' ? 'selected' : ''}>Admin</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label for="userImage">Profile Picture:</label>
+                    <input type="file" 
+                           id="userImage" 
+                           name="userImage" 
+                           accept="image/*">
+                </div>
+            </div>
+            
+            
+            <!-- Buttons Row -->
+            <div class="row buttons-row">
+                <button type="submit" class="submit-button">Register</button>
+                <a href="${pageContext.request.contextPath}/login" class="login-button">Already have an account? Login</a>
+            </div>
+        </form>
     </div>
-
-    <script>
-        // Script to toggle password visibility for both password fields
-        document.addEventListener('DOMContentLoaded', function() {
-            // For main password field 
-            const toggleButton = document.querySelector('.password-toggle:not(.confirm-toggle)');
-            const passwordInput = document.getElementById('password');
-
-            toggleButton.addEventListener('click', function() {
-                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                passwordInput.setAttribute('type', type);
-                
-                // Toggle eye icon
-                const eyeIcon = toggleButton.querySelector('i');
-                eyeIcon.classList.toggle('fa-eye');
-                eyeIcon.classList.toggle('fa-eye-slash');
-            });
-
-            // For confirm password field
-            const confirmToggleButton = document.querySelector('.confirm-toggle');
-            const confirmPasswordInput = document.getElementById('confirm-password');
-
-            confirmToggleButton.addEventListener('click', function() {
-                const type = confirmPasswordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-                confirmPasswordInput.setAttribute('type', type);
-                
-                // Toggle eye icon
-                const eyeIcon = confirmToggleButton.querySelector('i');
-                eyeIcon.classList.toggle('fa-eye');
-                eyeIcon.classList.toggle('fa-eye-slash');
-            });
-        });
-    </script>
 </body>
 </html>

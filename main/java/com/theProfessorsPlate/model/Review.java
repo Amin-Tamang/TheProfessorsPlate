@@ -1,4 +1,4 @@
-package com.theProfessorsPlate.model;
+package com.TheProfessorsPlate.model;
 
 public class Review {
     private int reviewId;

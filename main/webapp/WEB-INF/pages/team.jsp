@@ -1,21 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Our Team - The Professor's Plate</title>
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
-  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/team-styles.css" />
-  
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/css/team.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <jsp:include page="header.jsp" />
-
+<jsp:include page="header.jsp" />
+	
   <!-- Team Banner -->
   <div class="team-banner">
     <h1>OUR TEAM</h1>
@@ -27,7 +23,7 @@
       <!-- Team Member -->
       <div class="team-member">
         <div class="member-photo">
-          <img src="image.jpg" alt="Bivek Dahal" />
+          <img src="${pageContext.request.contextPath}/resources/usersImage/avatar.jpg" alt="Bivek Dahal" />
         </div>
         <h2 class="member-name">Bivek Dahal</h2>
         <h3 class="member-task-title">Task:</h3>
@@ -45,7 +41,7 @@
       <!-- Team Member -->
       <div class="team-member">
         <div class="member-photo">
-          <img src="image.jpg" alt="Amin Tamang" />
+          <img src="${pageContext.request.contextPath}/resources/usersImage/avatar.jpg" alt="Amin Tamang" />
         </div>
         <h2 class="member-name">Amin Tamang</h2>
         <h3 class="member-task-title">Task:</h3>
@@ -63,7 +59,7 @@
       <!-- Team Member -->
       <div class="team-member">
         <div class="member-photo">
-          <img src="image.jpg" alt="Nigel Awale" />
+          <img src="${pageContext.request.contextPath}/resources/usersImage/avatar.jpg" alt="Nigel Awale" />
         </div>
         <h2 class="member-name">Nigel Awale</h2>
         <h3 class="member-task-title">Task:</h3>
@@ -81,7 +77,7 @@
       <!-- Team Member -->
       <div class="team-member">
         <div class="member-photo">
-          <img src="image.jpg" alt="Ryan Khan" />
+          <img src="${pageContext.request.contextPath}/resources/usersImage/avatar.jpg" alt="Ryan Khan" />
         </div>
         <h2 class="member-name">Ryan Khan</h2>
         <h3 class="member-task-title">Task:</h3>
@@ -99,7 +95,7 @@
       <!-- Team Member -->
       <div class="team-member">
         <div class="member-photo">
-          <img src="image.jpg" alt="Sanjog Shrestha" />
+          <img src="${pageContext.request.contextPath}/resources/usersImage/avatar.jpg" alt="Sanjog Shrestha" />
         </div>
         <h2 class="member-name">Sanjog Shrestha</h2>
         <h3 class="member-task-title">Task:</h3>
@@ -115,8 +111,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Footer -->
- 	<jsp:include page="footer.jsp" />
-	</body>
+  <jsp:include page="footer.jsp" />
+</body>
 </html>

@@ -1,7 +1,7 @@
-package com.theProfessorsPlate.service;
+package com.TheProfessorsPlate.service;
 
-import com.theProfessorsPlate.config.DatabaseConnection;
-import com.theProfessorsPlate.model.Payment;
+import com.TheProfessorsPlate.config.DbConfig;
+import com.TheProfessorsPlate.model.Payment;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class PaymentService {
         List<Payment> payments = new ArrayList<>();
         String query = "SELECT * FROM payment";
 
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = DbConfig.getDbConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 
