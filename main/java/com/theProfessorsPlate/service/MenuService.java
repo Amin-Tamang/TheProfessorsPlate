@@ -1,7 +1,7 @@
-package com.theProfessorsPlate.service;
+package com.TheProfessorsPlate.service;
 
-import com.theProfessorsPlate.config.DatabaseConnection;
-import com.theProfessorsPlate.model.Menu;
+import com.TheProfessorsPlate.config.DbConfig;
+import com.TheProfessorsPlate.model.Menu;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class MenuService {
         List<Menu> menuList = new ArrayList<>();
         String query = "SELECT * FROM menu";
 
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = DbConfig.getDbConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 

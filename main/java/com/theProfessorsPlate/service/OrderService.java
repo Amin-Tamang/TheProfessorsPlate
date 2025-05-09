@@ -1,7 +1,7 @@
-package com.theProfessorsPlate.service;
+package com.TheProfessorsPlate.service;
 
-import com.theProfessorsPlate.config.DatabaseConnection;
-import com.theProfessorsPlate.model.Order;
+import com.TheProfessorsPlate.config.DbConfig;
+import com.TheProfessorsPlate.model.Order;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,7 +14,7 @@ public class OrderService {
         List<Order> orders = new ArrayList<>();
         String query = "SELECT * FROM orders";
 
-        try (Connection connection = DatabaseConnection.getConnection();
+        try (Connection connection = DbConfig.getDbConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(query);
              ResultSet resultSet = preparedStatement.executeQuery()) {
 

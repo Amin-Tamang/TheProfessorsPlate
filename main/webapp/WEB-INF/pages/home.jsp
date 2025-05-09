@@ -1,136 +1,97 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professor's Plate</title>
+    <title>The Professor's Plate - Fine Dining</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/home.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/header.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/footer.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-	<jsp:include page="header.jsp" />
+    <jsp:include page="header.jsp" />
+    
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-text fade-in">
+                <h1>Culinary Excellence<br>Meets Academic Charm</h1>
+                <p>Experience fine dining in a sophisticated atmosphere</p>
+                <a href="#menu" class="cta-button">Explore Menu</a>
+            </div>
+            <div class="hero-image fade-in">
+                <img src="${pageContext.request.contextPath}/resources/productsImage/Steak.jpg" alt="Signature Dish">
+            </div>
+        </div>
+    </section>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Welcome to the Professor's Plate</h1>
-                <p>Some Random Text</p>
-                <div class="cta-buttons">
-                    <a href="register.jsp" class="primary-btn">Get Started</a>
-                    <a href="#" class="secondary-btn">Browse Icons</a>
-                </div>
+    <section class="categories" id="menu">
+        <h2 class="section-title">Our Specialties</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="${pageContext.request.contextPath}/resources/productsImage/Steak.jpg" alt="Main Course">
+                <h3>Main Course</h3>
+                <p align="center">15 Dishes</p>
             </div>
-            <div class="hero-image">
-                <img src="/api/placeholder/600/400" alt="Icon Collection">
+            <div class="category-card">
+                <img src="${pageContext.request.contextPath}/resources/productsImage/Drinks.jpg" alt="Beverages">
+                <h3>Beverages</h3>
+                <p align="center">12 Options</p>
             </div>
-        </section>
+            <div class="category-card">
+                <img src="${pageContext.request.contextPath}/resources/productsImage/Pasta.jpg" alt="Pasta">
+                <h3>Pasta</h3>
+                <p align="center">8 Varieties</p>
+            </div>
+        </div>
+    </section>
 
-        <section class="features">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fa-duotone fa-solid fa-mug-hot"></i>
+    <section class="special-items">
+        <h2 class="section-title">Today's Specials</h2>
+        <div class="items-grid">
+            <div class="item-card">
+                <img src="${pageContext.request.contextPath}/resources/productsImage/Steak.jpg" alt="Ribeye Steak">
+                <div class="item-info">
+                    <h3>Ribeye Steak</h3>
+                    <p>Premium cut, perfectly seasoned</p>
+                    <span class="price">$34.99</span>
+                    <button class="order-btn">Order Now</button>
                 </div>
-                <h3>Customizable</h3>
-                <p>Some Random Text.</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fa-solid fa-flask"></i>
+            <div class="item-card">
+                <img src="${pageContext.request.contextPath}/resources/productsImage/Salmon.jpg" alt="Grilled Salmon">
+                <div class="item-info">
+                    <h3>Grilled Salmon</h3>
+                    <p>Fresh catch with herbs</p>
+                    <span class="price">$29.99</span>
+                    <button class="order-btn">Order Now</button>
                 </div>
-                <h3>Workings</h3>
-                <p>Some Random Text</p>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fa-regular fa-child"></i>
+            <div class="item-card">
+                <img src="${pageContext.request.contextPath}/resources/productsImage/Pasta.jpg" alt="Truffle Pasta">
+                <div class="item-info">
+                    <h3>Truffle Pasta</h3>
+                    <p>House-made specialty</p>
+                    <span class="price">$24.99</span>
+                    <button class="order-btn">Order Now</button>
                 </div>
-                <h3>Children Friendly</h3>
-                <p>Random text.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="categories">
-            <h2>Browse Icon Menu</h2>
-            <div class="category-grid">
-                <div class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-laptop"></i>
-                    </div>
-                    <h3>Menu</h3>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <h3>E-commerce</h3>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Business</h3>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>Design</h3>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h3>Social Media</h3>
-                </div>
-                <div class="category-item">
-                    <div class="category-icon">
-                        <i class="fas fa-utensils"></i>
-                    </div>
-                    <h3>Food & Drink</h3>
-                </div>
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <h2>Visit Us Today</h2>
+            <p>Make a reservation or order online</p>
+            <div class="contact-info">
+                <p><i class="fas fa-phone"></i> +977 980-1234567</p>
+                <p><i class="fas fa-envelope"></i> info@professorsplate.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</p>
             </div>
-        </section>
-
-        <section class="testimonial">
-            <div class="testimonial-content">
-                <div class="quote">
-                    <i class="fas fa-quote-left"></i>
-                </div>
-                <p>"Professor has revolutionized our taste buds. The quality and variety of food has increased dramatically."</p>
-                <div class="testimonial-author">
-                    <img src="/api/placeholder/60/60" alt="Client" class="author-image">
-                    <div class="author-info">
-                        <h4>Roshan Adhikari</h4>
-                        <p>Lead Cook, ProfPlat</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta">
-            <h2>Ready to enhance your taste buds.</h2>
-            <p>Join thousands of foodies and taste the food of The Professor.</p>
-            <a href="register.jsp" class="cta-button">Create Free Account</a>
-        </section>
-    </main>
-	
-	<jsp:include page="footer.jsp" />
-
-    <script>
-        $(document).ready(function() {
-            $("#header-container").load("header.html");
-            $("#footer-container").load("footer.html");
-        });
-    </script>
+        </div>
+    </section>
+    
+    <jsp:include page="footer.jsp" />
+    <script src="${pageContext.request.contextPath}/javaScript/home.js"></script>
 </body>
 </html>

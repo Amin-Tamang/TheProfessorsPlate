@@ -1,106 +1,101 @@
-package com.theProfessorsPlate.model;
+package com.TheProfessorsPlate.model;
 
 public class User {
-    private int id;
+    private int userId;
     private String userName;
-    private String password;
-    private String role;
-    private String email;
+    private String userPassword;
+    private String userRole;
+    private String userEmail;
     private String phoneNumber;
+    private String userImage;
 
-    public User(int id, String userName, String password, String role, String email, String phoneNumber) {
-        this.id = id;
+    // Default constructor
+    public User() {}
+    
+    public User(String userName, String userPasword) {
+		this.userName = userName;
+		this.userPassword = userPasword;
+	}
+    
+    
+    public User(int userId, String userName, String userPassword, String userRole, String userEmail, String phoneNumber,
+    		String userImage) {
+		super();
+		this.userId = userId;
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userRole = userRole;
+		this.userEmail = userEmail;
+		this.phoneNumber = phoneNumber;
+		this.userImage = userImage;
+	}
+    
+	public User(String userName, String userPassword, String userRole, String userEmail, String phoneNumber,
+			String userImage) {
+		super();
+		this.userName = userName;
+		this.userPassword = userPassword;
+		this.userRole = userRole;
+		this.userEmail = userEmail;
+		this.phoneNumber = phoneNumber;
+		this.userImage = userImage;
+	}
+
+	// Getters and Setters
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
         this.userName = userName;
-        this.password = password;
-        this.role = role;
-        this.email = email;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserRole() {
+        return userRole;
+    }
+
+    public void setUserRole(String userRole) {
+        this.userRole = userRole;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
-	/**
-	 * @return the id
-	 */
-	public int getId() {
-		return id;
-	}
 
-	/**
-	 * @param id the id to set
-	 */
-	public void setId(int id) {
-		this.id = id;
-	}
+    public String getUserImage() {
+        return userImage;
+    }
 
-	/**
-	 * @return the userName
-	 */
-	public String getUserName() {
-		return userName;
-	}
-
-	/**
-	 * @param userName the userName to set
-	 */
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	/**
-	 * @return the password
-	 */
-	public String getPassword() {
-		return password;
-	}
-
-	/**
-	 * @param password the password to set
-	 */
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	/**
-	 * @return the role
-	 */
-	public String getRole() {
-		return role;
-	}
-
-	/**
-	 * @param role the role to set
-	 */
-	public void setRole(String role) {
-		this.role = role;
-	}
-
-	/**
-	 * @return the email
-	 */
-	public String getEmail() {
-		return email;
-	}
-
-	/**
-	 * @param email the email to set
-	 */
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	/**
-	 * @return the phoneNumber
-	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	/**
-	 * @param phoneNumber the phoneNumber to set
-	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-    // Getters and Setters
-    
+    public void setUserImage(String userImage) {
+        this.userImage = userImage;
+    }
 }
