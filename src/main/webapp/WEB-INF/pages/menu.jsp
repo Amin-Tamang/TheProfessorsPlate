@@ -1,131 +1,120 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu - The Professor's Plate</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/menu.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <jsp:include page="header.jsp" />
     
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-sidebar">
-            <h1 class="headline">Our</h1>
-            <h1 class="headline-secondary">Menu</h1>
-            <p class="hero-text">Savor the flavors of our carefully crafted dishes</p>
-            <a href="#menu-categories" class="cta-button">View Menu</a>
+    <main class="menu-container">
+        <section class="menu-hero">
+            <h1>Our Menu</h1>
+            <p>Explore our exquisite selection of culinary delights</p>
+        </section>
+
+        <!-- Display messages if any -->
+        <c:if test="${not empty success}">
+            <div class="alert success-alert">
+                <p>${success}</p>
+            </div>
+        </c:if>
+        
+        <c:if test="${not empty error}">
+            <div class="alert error-alert">
+                <p>${error}</p>
+            </div>
+        </c:if>
+
+        <!-- Category Filter -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="nepali">Nepali</button>
+            <button class="filter-btn" data-filter="italian">Italian</button>
+            <button class="filter-btn" data-filter="american">American</button>
+            <button class="filter-btn" data-filter="indian">Indian</button>
+            <button class="filter-btn" data-filter="drinks">Drinks</button>
         </div>
-        <div class="hero-image">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Steak.jpg" alt="Featured Dish">
-            <div class="image-overlay">
-                <div class="overlay-content">
-                    <span class="tag">Chef's Special</span>
-                    <h2>Premium Steak</h2>
-                    <p>Perfectly grilled to your preference</p>
+
+        <!-- Menu Items Grid -->
+        <div class="menu-grid">
+            <c:forEach items="${menuList}" var="item">
+                <div class="menu-item" data-category="${item.foodCategory}">
+                    <div class="item-image">
+                        <img src="${pageContext.request.contextPath}/resources/productsImage/${item.foodImage}" alt="${item.foodName}">
+                        
+                        <c:if test="${sessionScope.userId != null}">
+                            <form action="${pageContext.request.contextPath}/cart" method="post" class="add-to-cart-form">
+                                <input type="hidden" name="action" value="add">
+                                <input type="hidden" name="foodId" value="${item.foodId}">
+                                <button type="submit" class="add-to-cart-btn">
+                                    <i class="fas fa-shopping-cart"></i> Add to Cart
+                                </button>
+                            </form>
+                        </c:if>
+                    </div>
+                    <div class="item-details">
+                        <h3>${item.foodName}</h3>
+                        <p class="item-description">${item.foodDescription}</p>
+                        <div class="item-price-section">
+                            <span class="item-price">Rs. ${item.foodPrice}</span>
+                            <c:if test="${item.discountId > 0}">
+                                <!-- If there's a discount, we'll show it here -->
+                                <span class="item-discount">Special Offer!</span>
+                            </c:if>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </c:forEach>
         </div>
-    </section>
-    
-    <!-- Menu Categories -->
-    <div id="menu-categories" class="filter-controls">
-        <div class="container">
-            <h2 class="section-title">Discover Our Dishes</h2>
-            <div class="filters">
-                <button class="filter-btn active" data-filter="all">All Menu</button>
-                <button class="filter-btn" data-filter="appetizers">Appetizers</button>
-                <button class="filter-btn" data-filter="mains">Main Course</button>
-                <button class="filter-btn" data-filter="desserts">Desserts</button>
-                <button class="filter-btn" data-filter="drinks">Beverages</button>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Menu Grid -->
-    <section id="menu" class="menu-grid">
-        <!-- Appetizers -->
-        <div class="menu-item" data-category="appetizers">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Pasta.jpg" alt="Appetizer">
-            <div class="item-overlay">
-                <h3>Bruschetta</h3>
-                <p>Fresh tomatoes, basil, garlic</p>
-                <span class="price">$8.99</span>
-            </div>
-        </div>
-
-        <!-- Main Courses -->
-        <div class="menu-item" data-category="mains">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Steak.jpg" alt="Main Course">
-            <div class="item-overlay">
-                <h3>Ribeye Steak</h3>
-                <p>Premium cut, herb butter</p>
-                <span class="price">$34.99</span>
-            </div>
-        </div>
-
-        <!-- Special Item - Wide -->
-        <div class="menu-item wide" data-category="mains">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Salmon.jpg" alt="Seafood Special">
-            <div class="item-overlay">
-                <h3>Grilled Salmon</h3>
-                <p>Fresh Atlantic salmon, lemon butter sauce</p>
-                <span class="price">$28.99</span>
-            </div>
-        </div>
-
-        <!-- Desserts -->
-        <div class="menu-item" data-category="desserts">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Food.jpg" alt="Dessert">
-            <div class="item-overlay">
-                <h3>Chocolate Lava Cake</h3>
-                <p>Warm chocolate, vanilla ice cream</p>
-                <span class="price">$9.99</span>
-            </div>
-        </div>
-
-        <!-- Beverages -->
-        <div class="menu-item" data-category="drinks">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Drinks.jpg" alt="Cocktail">
-            <div class="item-overlay">
-                <h3>Signature Cocktail</h3>
-                <p>House special blend</p>
-                <span class="price">$12.99</span>
-            </div>
-        </div>
-
-        <!-- More Menu Items -->
-        <div class="menu-item" data-category="mains">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Piz.jpg" alt="Pizza">
-            <div class="item-overlay">
-                <h3>Artisan Pizza</h3>
-                <p>Wood-fired, fresh toppings</p>
-                <span class="price">$18.99</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- Daily Specials -->
-    <div class="feature-section">
-        <div class="feature-text">
-            <h2>Today's Special</h2>
-            <p>Chef's curated three-course meal featuring our signature dishes and a complimentary glass of wine.</p>
-            <div class="special-price">
-                <span class="price-tag">$49.99</span>
-                <span class="per-person">per person</span>
-            </div>
-            <a href="#" class="cta-button secondary">Reserve Now</a>
-        </div>
-        <div class="feature-image">
-            <img src="${pageContext.request.contextPath}/resources/productsImage/Vegsteak.jpg" alt="Special of the day">
-        </div>
-    </div>
+    </main>
 
     <jsp:include page="footer.jsp" />
-    <script src="${pageContext.request.contextPath}/javaScript/menu.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Filter functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const menuItems = document.querySelectorAll('.menu-item');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Get filter value
+                    const filterValue = this.getAttribute('data-filter');
+                    
+                    // Show/hide menu items based on filter
+                    menuItems.forEach(item => {
+                        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+            
+            // Hide alert messages after 5 seconds
+            const alerts = document.querySelectorAll('.alert');
+            alerts.forEach(alert => {
+                setTimeout(() => {
+                    alert.style.opacity = '0';
+                    setTimeout(() => {
+                        alert.style.display = 'none';
+                    }, 500);
+                }, 5000);
+            });
+        });
+    </script>
 </body>
 </html>

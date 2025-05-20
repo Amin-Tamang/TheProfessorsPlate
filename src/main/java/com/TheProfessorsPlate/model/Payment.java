@@ -1,90 +1,74 @@
 package com.TheProfessorsPlate.model;
 
+import java.util.Date;
+
 public class Payment {
     private int paymentId;
-    private String paymentDate;
+    private Date paymentDate;
     private String paymentMethod;
     private String paymentStatus;
     private double paymentAmount;
-
-    public Payment(int paymentId, String paymentDate, String paymentMethod, String paymentStatus, double paymentAmount) {
+    
+    // Default constructor
+    public Payment() {}
+    
+    // Parameterized constructor
+    public Payment(int paymentId, Date paymentDate, String paymentMethod, 
+                  String paymentStatus, double paymentAmount) {
         this.paymentId = paymentId;
         this.paymentDate = paymentDate;
         this.paymentMethod = paymentMethod;
         this.paymentStatus = paymentStatus;
         this.paymentAmount = paymentAmount;
     }
-
-	/**
-	 * @return the paymentId
-	 */
-	public int getPaymentId() {
-		return paymentId;
-	}
-
-	/**
-	 * @param paymentId the paymentId to set
-	 */
-	public void setPaymentId(int paymentId) {
-		this.paymentId = paymentId;
-	}
-
-	/**
-	 * @return the paymentDate
-	 */
-	public String getPaymentDate() {
-		return paymentDate;
-	}
-
-	/**
-	 * @param paymentDate the paymentDate to set
-	 */
-	public void setPaymentDate(String paymentDate) {
-		this.paymentDate = paymentDate;
-	}
-
-	/**
-	 * @return the paymentMethod
-	 */
-	public String getPaymentMethod() {
-		return paymentMethod;
-	}
-
-	/**
-	 * @param paymentMethod the paymentMethod to set
-	 */
-	public void setPaymentMethod(String paymentMethod) {
-		this.paymentMethod = paymentMethod;
-	}
-
-	/**
-	 * @return the paymentStatus
-	 */
-	public String getPaymentStatus() {
-		return paymentStatus;
-	}
-
-	/**
-	 * @param paymentStatus the paymentStatus to set
-	 */
-	public void setPaymentStatus(String paymentStatus) {
-		this.paymentStatus = paymentStatus;
-	}
-
-	/**
-	 * @return the paymentAmount
-	 */
-	public double getPaymentAmount() {
-		return paymentAmount;
-	}
-
-	/**
-	 * @param paymentAmount the paymentAmount to set
-	 */
-	public void setPaymentAmount(double paymentAmount) {
-		this.paymentAmount = paymentAmount;
-	}
-
-    // Getters and Setters
     
+    // Constructor without ID (for new payment creation)
+    public Payment(Date paymentDate, String paymentMethod, 
+                  String paymentStatus, double paymentAmount) {
+        this.paymentDate = paymentDate;
+        this.paymentMethod = paymentMethod;
+        this.paymentStatus = paymentStatus;
+        this.paymentAmount = paymentAmount;
+    }
+    
+    // Getters and Setters
+    public int getPaymentId() {
+        return paymentId;
+    }
+    
+    public void setPaymentId(int paymentId) {
+        this.paymentId = paymentId;
+    }
+    
+    public Date getPaymentDate() {
+        return paymentDate;
+    }
+    
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
+    }
+    
+    public String getPaymentMethod() {
+        return paymentMethod;
+    }
+    
+    public void setPaymentMethod(String paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
+    
+    public String getPaymentStatus() {
+        return paymentStatus;
+    }
+    
+    public void setPaymentStatus(String paymentStatus) {
+        this.paymentStatus = paymentStatus;
+    }
+    
+    public double getPaymentAmount() {
+        return paymentAmount;
+    }
+    
+    public void setPaymentAmount(double paymentAmount) {
+        this.paymentAmount = paymentAmount;
+    }
 }
