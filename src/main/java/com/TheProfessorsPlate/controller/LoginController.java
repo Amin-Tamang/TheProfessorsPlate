@@ -38,7 +38,7 @@ public class LoginController extends HttpServlet {
         try {
             String userName = req.getParameter("userName");
             String userPassword = req.getParameter("userPassword");
-
+            
             // Validate input
             if (userName == null || userPassword == null || 
                 userName.trim().isEmpty() || userPassword.trim().isEmpty()) {
@@ -58,10 +58,14 @@ public class LoginController extends HttpServlet {
                 // Store user information in session
                 SessionUtil.setAttribute(req, "userName", authenticatedUser.getUserName());
                 SessionUtil.setAttribute(req, "userRole", authenticatedUser.getUserRole());
+                logger.info("Setting session - userId: " + authenticatedUser.getUserId() + 
+                        ", userName: " + authenticatedUser.getUserName() + 
+                        ", userRole: " + authenticatedUser.getUserRole());
+                SessionUtil.setAttribute(req, "userId", authenticatedUser.getUserId());
                 
                 // Set role cookie
                 String userRole = authenticatedUser.getUserRole();
-                CookieUtil.addCookie(resp, "userRole", userRole, 5 * 30);
+                CookieUtil.addCookie(resp, "userRole", userRole, 86400);
                 
                 // Redirect based on role
                 switch(userRole.toLowerCase()) {
