@@ -11,7 +11,16 @@
 </head>
 <body>
     <jsp:include page="header.jsp" />
-    
+    <!-- Add this at the beginning of your menu.jsp -->
+<script>
+function debugCartInfo() {
+    console.log("Session user ID: ${sessionScope.userId}");
+    console.log("Session user name: ${sessionScope.userName}");
+    console.log("Is user logged in? ${sessionScope.userId != null}");
+}
+// Call this when the page loads
+window.onload = debugCartInfo;
+</script>
     <main class="menu-container">
         <section class="menu-hero">
             <h1>Our Menu</h1>
@@ -46,7 +55,7 @@
             <c:forEach items="${menuList}" var="item">
                 <div class="menu-item" data-category="${item.foodCategory}">
                     <div class="item-image">
-                        <img src="${pageContext.request.contextPath}/resources/productsImage/${item.foodImage}" alt="${item.foodName}">
+                        <img src="${pageContext.request.contextPath}/${item.foodImage}" alt="${item.foodName}">
                         
                         <c:if test="${sessionScope.userId != null}">
                             <form action="${pageContext.request.contextPath}/cart" method="post" class="add-to-cart-form">
